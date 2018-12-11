@@ -115,7 +115,11 @@ export function createScrollingComponent(WrappedComponent) {
     componentDidMount() {
       // eslint-disable-next-line react/no-find-dom-node
       this.container = findDOMNode(this.wrappedInstance.current);
-      this.container.addEventListener('dragover', this.handleEvent);
+
+      if (this.container && typeof this.container.addEventListener === 'function') {
+        this.container.addEventListener('dragover', this.handleEvent);
+      }
+
       // touchmove events don't seem to work across siblings, so we unfortunately
       // have to attach the listeners to the body
       window.document.body.addEventListener('touchmove', this.handleEvent);
@@ -127,7 +131,10 @@ export function createScrollingComponent(WrappedComponent) {
     }
 
     componentWillUnmount() {
-      this.container.removeEventListener('dragover', this.handleEvent);
+      if (this.container && typeof this.container.removeEventListener === 'function') {
+        this.container.removeEventListener('dragover', this.handleEvent);
+      }
+
       window.document.body.removeEventListener('touchmove', this.handleEvent);
       this.clearMonitorSubscription();
       this.stopScrolling();
