@@ -1,4 +1,6 @@
-# react-dnd-scrollzone
+# frontend-collective-react-dnd-scrollzone
+
+Forked from https://github.com/azuqua/react-dnd-scrollzone with support for react-dnd@6.
 
 Cross browser compatible scrolling containers for drag and drop interactions.
 
