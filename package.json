@@ -1,6 +1,6 @@
 {
   "name": "frontend-collective-react-dnd-scrollzone",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A cross browser solution to scrolling during drag and drop.",
   "main": "lib/index.js",
   "scripts": {
