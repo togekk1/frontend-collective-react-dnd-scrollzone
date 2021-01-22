@@ -113,8 +113,7 @@ export function createScrollingComponent(WrappedComponent) {
     }
 
     componentDidMount() {
-      // eslint-disable-next-line react/no-find-dom-node
-      this.container = findDOMNode(this.wrappedInstance.current);
+      this.container = this.wrappedInstance.current;
 
       if (this.container && typeof this.container.addEventListener === 'function') {
         this.container.addEventListener('dragover', this.handleEvent);
